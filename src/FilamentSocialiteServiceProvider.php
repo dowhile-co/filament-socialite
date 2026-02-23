@@ -55,6 +55,22 @@ class FilamentSocialiteServiceProvider extends PackageServiceProvider
             },
         );
 
+        FilamentView::registerRenderHook(
+            'panels::auth.register.form.after',
+            static function (): ?string {
+                $panel = Filament::getCurrentPanel();
+
+                if (! $panel?->hasPlugin('filament-socialite')) {
+                    return null;
+                }
+
+                /** @var \DutchCodingCompany\FilamentSocialite\FilamentSocialitePlugin $plugin */
+                $plugin = $panel->getPlugin('filament-socialite');
+
+                return Blade::render('<x-filament-socialite::buttons :show-divider="'.($plugin->getShowDivider() ? 'true' : 'false').'" />');
+            },
+        );
+
         if (
             version_compare(app()->version(), '11.0', '>=')
             && method_exists(VerifyCsrfToken::class, 'except')
