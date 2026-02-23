@@ -3,6 +3,8 @@
 return [
     'login-via' => 'Or log in via',
 
+    'register-via' => 'Or register via',
+
     'login-failed' => 'Login failed, please try again.',
 
     'user-not-allowed' => 'Your email is not part of a domain that is allowed.',
