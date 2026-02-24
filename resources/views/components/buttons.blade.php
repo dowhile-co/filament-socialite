@@ -28,7 +28,7 @@
             @if($showDivider)
                 <div class="relative flex items-center justify-center text-center">
                     <div class="absolute border-t border-gray-200 w-full h-px"></div>
-                    <p class="inline-block relative bg-white text-sm px-4 p-2 font-medium">
+                    <p class="inline-block relative bg-white dark:bg-gray-900 text-sm px-4 p-2 font-medium">
                         {{ $dividerLabel }}
                     </p>
                 </div>
